@@ -1,149 +1,156 @@
 # 📋 Sistema de Gestão de Chamados
 
-Sistema web simples de gestão de chamados/tarefas, inspirado no funcionamento básico do Asana. Desenvolvido com PHP, MySQL, HTML, CSS e JavaScript.
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-7.4+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-5.7+-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+</p>
 
-![PHP](https://img.shields.io/badge/PHP-7.4+-777BB4?style=flat-square&logo=php&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-5.7+-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+## 📖 Descrição do Projeto
 
-## 📖 Sobre o Projeto
+Sistema web de gestão de chamados e tarefas inspirado no Asana. Permite criar, organizar e acompanhar chamados/tarefas de forma simples e eficiente.
 
-Este é um sistema de gestão de chamados desenvolvido para fins de portfólio. O objetivo é demonstrar habilidades em desenvolvimento web full-stack utilizando tecnologias tradicionais sem frameworks complexos.
+**Problema que resolve:** Organização e acompanhamento de tarefas em equipes, permitindo atribuir responsáveis, definir status e manter histórico de chamados.
 
-### Funcionalidades
+---
 
-- ✅ **Autenticação de Usuários** - Cadastro e login com senhas criptografadas
-- ✅ **CRUD de Chamados** - Criar, visualizar, editar e excluir chamados
-- ✅ **Gerenciamento de Status** - Aberto, Em Andamento, Concluído
-- ✅ **Atribuição de Responsáveis** - Designar usuários para cada chamado
-- ✅ **Dashboard** - Visão geral com estatísticas e filtros
-- ✅ **Busca e Filtros** - Pesquisar chamados por título/descrição e status
-- ✅ **Interface Responsiva** - Layout adaptável para diferentes dispositivos
+## ✨ Funcionalidades
+
+| Funcionalidade | Descrição |
+|----------------|-----------|
+| 🔐 **Autenticação** | Cadastro e login de usuários com senhas criptografadas (bcrypt) |
+| ➕ **Criar Chamados** | Formulário para criar novos chamados com título, descrição e responsável |
+| ✏️ **Editar Chamados** | Alterar informações e status de chamados existentes |
+| 🗑️ **Excluir Chamados** | Remover chamados com confirmação |
+| 📋 **Listar Chamados** | Dashboard com todos os chamados e estatísticas |
+| 🔍 **Busca e Filtros** | Pesquisar por título/descrição e filtrar por status |
+| 📊 **Dashboard** | Visão geral com contadores por status |
+| 👤 **Atribuição** | Designar responsáveis para cada chamado |
+
+### Status dos Chamados
+
+| Status | Descrição |
+|--------|-----------|
+| 🟡 Aberto | Chamado recém-criado, aguardando ação |
+| 🔵 Em Andamento | Chamado em processo de resolução |
+| 🟢 Concluído | Chamado finalizado |
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia | Uso |
-|------------|-----|
-| **PHP 7.4+** | Backend e lógica de negócios |
-| **MySQL 5.7+** | Banco de dados relacional |
-| **HTML5** | Estrutura das páginas |
-| **CSS3** | Estilização e responsividade |
-| **JavaScript** | Interações e validações |
-| **PDO** | Conexão segura com banco de dados |
+- **PHP 7.4+** — Backend e lógica de negócios
+- **MySQL 5.7+** — Banco de dados relacional
+- **HTML5** — Estrutura das páginas
+- **CSS3** — Estilização responsiva
+- **JavaScript** — Interações e validações
+- **PDO** — Conexão segura com banco de dados
+
+---
+
+## 🚀 Como Rodar Localmente
+
+### Requisitos
+
+- PHP 7.4 ou superior
+- MySQL 5.7 ou superior
+- Servidor web (XAMPP, Laragon, WAMP ou similar)
+
+### Instalação
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/ricardaoquadros-jpg/gestao.git
+   ```
+
+2. **Mova para a pasta do servidor**
+   - **Laragon:** `C:\laragon\www\`
+   - **XAMPP:** `C:\xampp\htdocs\`
+
+3. **Configure o banco de dados**
+   
+   Acesse `http://localhost/gestao/setup.php` para criar o banco automaticamente.
+   
+   **Ou manualmente:** Importe o arquivo `database.sql` no phpMyAdmin.
+
+4. **Configure a conexão** (se necessário)
+   
+   Edite `db/conexao.php`:
+   ```php
+   define('DB_HOST', 'localhost');
+   define('DB_NAME', 'gestao_chamados');
+   define('DB_USER', 'root');
+   define('DB_PASS', ''); // sua senha
+   ```
+
+5. **Acesse o sistema**
+   ```
+   http://localhost/gestao
+   ```
+
+---
 
 ## 📁 Estrutura do Projeto
 
 ```
-/gestao/
-├── index.php           # Página inicial (redirecionamento)
-├── login.php           # Página de login
-├── cadastro.php        # Página de cadastro
-├── logout.php          # Encerramento de sessão
+gestao/
+├── index.php           # Página inicial (redirect)
+├── login.php           # Autenticação
+├── cadastro.php        # Registro de usuários
+├── logout.php          # Encerrar sessão
 ├── dashboard.php       # Painel principal
-├── create_chamado.php  # Criar novo chamado
+├── create_chamado.php  # Criar chamado
 ├── view_chamado.php    # Visualizar detalhes
 ├── edit_chamado.php    # Editar chamado
 ├── delete_chamado.php  # Excluir chamado
-├── database.sql        # Script do banco de dados
-├── README.md           # Documentação
+├── database.sql        # Script do banco
 ├── db/
-│   └── conexao.php     # Configuração do banco
+│   └── conexao.php     # Configuração PDO
 ├── css/
 │   └── style.css       # Estilos
 └── js/
-    └── main.js         # Scripts JavaScript
+    └── main.js         # JavaScript
 ```
 
-## 🚀 Como Rodar Localmente
-
-### Pré-requisitos
-
-- PHP 7.4 ou superior
-- MySQL 5.7 ou superior
-- Servidor web (Apache/Nginx) ou XAMPP/Laragon/WAMP
-
-### Passo a Passo
-
-1. **Clone ou baixe o projeto**
-   ```bash
-   git clone https://github.com/seu-usuario/gestao-chamados.git
-   ```
-
-2. **Configure o ambiente**
-   - Coloque a pasta `gestao` dentro da pasta `htdocs` (XAMPP) ou `www` (Laragon/WAMP)
-
-3. **Crie o banco de dados**
-   - Acesse o phpMyAdmin (http://localhost/phpmyadmin)
-   - Importe o arquivo `database.sql`
-   - Ou execute o seguinte comando MySQL:
-     ```bash
-     mysql -u root -p < database.sql
-     ```
-
-4. **Configure a conexão**
-   - Abra o arquivo `db/conexao.php`
-   - Ajuste as credenciais se necessário:
-     ```php
-     define('DB_HOST', 'localhost');
-     define('DB_NAME', 'gestao_chamados');
-     define('DB_USER', 'root');
-     define('DB_PASS', ''); // Sua senha do MySQL
-     ```
-
-5. **Acesse o sistema**
-   - Abra o navegador em: http://localhost/gestao
-   - Crie uma conta e comece a usar!
-
-## 📸 Screenshots
-
-### Tela de Login
-Interface limpa e moderna para autenticação de usuários.
-
-### Dashboard
-Visão geral com estatísticas, filtros e lista de chamados.
-
-### Formulário de Chamado
-Formulário intuitivo para criar e editar chamados.
+---
 
 ## 🔐 Segurança
 
-- Senhas criptografadas com `password_hash()` (bcrypt)
-- Queries preparadas com PDO para prevenir SQL Injection
-- Validação de dados no frontend e backend
-- Proteção de páginas por sessão
-- Escape de HTML com `htmlspecialchars()` para prevenir XSS
+- ✅ Senhas criptografadas com `password_hash()` (bcrypt)
+- ✅ Queries preparadas (PDO) contra SQL Injection
+- ✅ Escape de HTML com `htmlspecialchars()` contra XSS
+- ✅ Proteção de rotas por sessão
 
-## 📋 Status dos Chamados
+---
 
-| Status | Cor | Descrição |
-|--------|-----|-----------|
-| 🟡 **Aberto** | Amarelo | Chamado recém-criado, aguardando ação |
-| 🔵 **Em Andamento** | Azul | Chamado em processo de resolução |
-| 🟢 **Concluído** | Verde | Chamado finalizado com sucesso |
+## 🚧 Possíveis Evoluções
 
-## 🤝 Contribuições
+- [ ] Comentários em chamados
+- [ ] Anexar arquivos
+- [ ] Notificações por email
+- [ ] Prioridade de chamados (Alta, Média, Baixa)
+- [ ] Relatórios e gráficos
+- [ ] API REST para integração
+- [ ] Categorias/Tags para chamados
+- [ ] Histórico de alterações
 
-Contribuições são bem-vindas! Sinta-se à vontade para:
-
-1. Fazer um fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/NovaFeature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona NovaFeature'`)
-4. Push para a branch (`git push origin feature/NovaFeature`)
-5. Abrir um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+---
 
 ## 👤 Autor
 
 **Ricardo Quadros**
 
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Ricardo Quadros](https://linkedin.com/in/seu-perfil)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ricardaoquadros-jpg)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
 
 ---
 
-⭐ Se este projeto foi útil para você, considere dar uma estrela!
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
+
+---
+
+⭐ Se este projeto foi útil, considere dar uma estrela!
