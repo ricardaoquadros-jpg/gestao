@@ -1,0 +1,30 @@
+# Arquivos de instalação (remover após setup)
+setup.php
+
+# Arquivos de configuração local (se houver)
+*.local.php
+config.local.php
+
+# Logs
+*.log
+logs/
+
+# IDE e editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependências (se usar no futuro)
+/vendor/
+/node_modules/
+
+# Arquivos temporários
+*.tmp
+*.bak
